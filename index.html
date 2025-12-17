@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+  <title>Lexus LC 500 | Experience Amazing</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <script type="importmap">
+  {
+    "imports": {
+      "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+      "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+    }
+  }
+  </script>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="logo">
+      <span class="logo-text">LEXUS</span>
+      <span class="logo-accent">LC 500</span>
+    </div>
+    <ul class="nav-links">
+      <li><a href="overview.html" class="nav-link">Overview</a></li>
+      <li><a href="#" class="nav-link">Performance</a></li>
+      <li><a href="gallery.html" class="nav-link">Gallery</a></li>
+      <li><a href="#" class="nav-link active">Configure</a></li>
+    </ul>
+    <button class="hamburger" aria-label="Toggle menu" aria-expanded="false">
+      <span class="hamburger-line"></span>
+      <span class="hamburger-line"></span>
+      <span class="hamburger-line"></span>
+    </button>
+    <button class="cta-button">
+      <span>Schedule Test Drive</span>
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M5 12h14M12 5l7 7-7 7"/>
+      </svg>
+    </button>
+  </nav>
+
+  <!-- Mobile Navigation -->
+  <div class="mobile-nav-overlay"></div>
+  <div class="mobile-nav">
+    <ul class="mobile-nav-links">
+      <li><a href="overview.html" class="mobile-nav-link">Overview</a></li>
+      <li><a href="#" class="mobile-nav-link">Performance</a></li>
+      <li><a href="gallery.html" class="mobile-nav-link">Gallery</a></li>
+      <li><a href="index.html" class="mobile-nav-link active">Configure</a></li>
+    </ul>
+    <button class="mobile-cta-button">
+      Schedule Test Drive
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M5 12h14M12 5l7 7-7 7"/>
+      </svg>
+    </button>
+  </div>
+
+  <!-- 3D Viewer Modal -->
+  <div class="modal-overlay" id="modal3D">
+    <div class="modal-content">
+      <button class="modal-close" id="closeModal" aria-label="Close 3D Viewer">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M18 6L6 18M6 6l12 12"/>
+        </svg>
+      </button>
+      <div class="modal-header">
+        <h2 class="modal-title">Lexus LC 500</h2>
+        <p class="modal-subtitle">Interactive 3D View - Drag to rotate, scroll to zoom</p>
+      </div>
+      <div id="canvas-container">
+        <div class="loading-spinner" id="loadingSpinner">
+          <div class="spinner"></div>
+          <span>Loading 3D Model...</span>
+        </div>
+        
+        <!-- Added 3D color picker panel -->
+        <div class="color-picker-3d" id="colorPicker3D">
+          <span class="picker-label">Paint Color</span>
+          <div class="picker-options">
+            <button class="picker-btn active" data-color="red" data-hex="#c41e3a" aria-label="Infrared">
+              <span class="picker-fill" style="background: linear-gradient(135deg, #c41e3a, #8b0000)"></span>
+              <span class="picker-ring"></span>
+            </button>
+            <button class="picker-btn" data-color="blue" data-hex="#1e3a5f" aria-label="Structural Blue">
+              <span class="picker-fill" style="background: linear-gradient(135deg, #1e3a5f, #0a1f3c)"></span>
+              <span class="picker-ring"></span>
+            </button>
+            <button class="picker-btn" data-color="black" data-hex="#1a1a1a" aria-label="Caviar Black">
+              <span class="picker-fill" style="background: linear-gradient(135deg, #1a1a1a, #0d0d0d)"></span>
+              <span class="picker-ring"></span>
+            </button>
+            <button class="picker-btn" data-color="white" data-hex="#f5f5f5" aria-label="Ultra White">
+              <span class="picker-fill" style="background: linear-gradient(135deg, #ffffff, #e8e8e8)"></span>
+              <span class="picker-ring"></span>
+            </button>
+          </div>
+          <span class="picker-color-name" id="pickerColorName">Infrared</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <!-- Background Elements -->
+    <div class="bg-gradient"></div>
+    <div class="bg-glow"></div>
+    <div class="grid-overlay"></div>
+
+    <!-- Main Content -->
+    <div class="hero-content">
+      <div class="text-content">
+        <span class="badge">2024 LC 500</span>
+        <h1 class="headline">
+          <span class="line">Experience</span>
+          <span class="line accent">Amazing</span>
+        </h1>
+        <p class="subtitle">
+          A stunning grand tourer that combines breathtaking design with 
+          exhilarating performance. The Lexus LC 500 is automotive art.
+        </p>
+        <div class="stats">
+          <div class="stat">
+            <span class="stat-value">4.4<small>s</small></span>
+            <span class="stat-label">0-100 km/h</span>
+          </div>
+          <div class="stat">
+            <span class="stat-value">471<small>hp</small></span>
+            <span class="stat-label">V8 Power</span>
+          </div>
+          <div class="stat">
+            <span class="stat-value">270<small>km/h</small></span>
+            <span class="stat-label">Top Speed</span>
+          </div>
+        </div>
+        
+        <!-- View in 3D Button -->
+        <button class="view-3d-button" id="view3DBtn">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+            <path d="M2 17l10 5 10-5"/>
+            <path d="M2 12l10 5 10-5"/>
+          </svg>
+          <span>View in 3D</span>
+        </button>
+      </div>
+
+      <!-- Car Display -->
+      <div class="car-container">
+        <div class="car-shadow"></div>
+        <div class="car-wrapper">
+          <img src="Img/Lexus LC 500 in Infrared color.png" 
+               alt="Lexus LC 500 in Infrared" 
+               class="car-image active" 
+               data-color="red">
+          <img src="Img/Lexus LC 500 in Structural Blue.png" 
+               alt="Lexus LC 500 in Structural Blue" 
+               class="car-image" 
+               data-color="blue">
+          <img src="Img/Lexus LC 500 in Caviar Black.png" 
+               alt="Lexus LC 500 in Caviar Black" 
+               class="car-image" 
+               data-color="black">
+          <img src="Img/Lexus LC 500 in Ultra White.png" 
+               alt="Lexus LC 500 in Ultra White" 
+               class="car-image" 
+               data-color="white">
+        </div>
+      </div>
+
+      <!-- Color Selector Panel -->
+      <div class="color-panel">
+        <span class="panel-label">Exterior</span>
+        <div class="color-options">
+          <button class="color-btn active" data-color="red" aria-label="Select Infrared">
+            <span class="color-fill" style="background: linear-gradient(135deg, #c41e3a, #8b0000)"></span>
+            <span class="color-ring"></span>
+          </button>
+          <button class="color-btn" data-color="blue" aria-label="Select Structural Blue">
+            <span class="color-fill" style="background: linear-gradient(135deg, #1e3a5f, #0a1f3c)"></span>
+            <span class="color-ring"></span>
+          </button>
+          <button class="color-btn" data-color="black" aria-label="Select Caviar">
+            <span class="color-fill" style="background: linear-gradient(135deg, #1a1a1a, #0d0d0d)"></span>
+            <span class="color-ring"></span>
+          </button>
+          <button class="color-btn" data-color="white" aria-label="Select Ultra White">
+            <span class="color-fill" style="background: linear-gradient(135deg, #ffffff, #e8e8e8)"></span>
+            <span class="color-ring"></span>
+          </button>
+        </div>
+        <span class="color-name">Infrared</span>
+      </div>
+    </div>
+
+    <!-- Scroll Indicator -->
+    <div class="scroll-indicator">
+      <span>Scroll to explore</span>
+      <div class="scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- Performance Section -->
+  <section class="performance" id="performance">
+    <div class="section-header">
+      <span class="section-badge">Performance</span>
+      <h2 class="section-title">Engineered for <span class="accent">Exhilaration</span></h2>
+      <p class="section-subtitle">A naturally aspirated 5.0L V8 engine delivers 471 horsepower with an intoxicating soundtrack that stirs the soul.</p>
+    </div>
+
+    <div class="performance-grid">
+      <div class="performance-card featured">
+        <div class="card-icon">
+          <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+          </svg>
+        </div>
+        <h3 class="card-title">5.0L V8 Engine</h3>
+        <p class="card-description">The heart of the LC 500 is a naturally aspirated V8 that revs to 7,300 RPM, producing a spine-tingling exhaust note.</p>
+        <div class="card-stats">
+          <div class="card-stat">
+            <span class="card-stat-value">471</span>
+            <span class="card-stat-label">Horsepower</span>
+          </div>
+          <div class="card-stat">
+            <span class="card-stat-value">540</span>
+            <span class="card-stat-label">Nm Torque</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="performance-card">
+        <div class="card-icon">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <circle cx="12" cy="12" r="10"/>
+            <path d="M12 6v6l4 2"/>
+          </svg>
+        </div>
+        <h3 class="card-title">10-Speed Transmission</h3>
+        <p class="card-description">Direct Shift technology with paddle shifters for precise control.</p>
+      </div>
+
+      <div class="performance-card">
+        <div class="card-icon">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+          </svg>
+        </div>
+        <h3 class="card-title">4.4s 0-100 km/h</h3>
+        <p class="card-description">Blistering acceleration that pins you to your seat.</p>
+      </div>
+
+      <div class="performance-card">
+        <div class="card-icon">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/>
+          </svg>
+        </div>
+        <h3 class="card-title">Adaptive Suspension</h3>
+        <p class="card-description">Variable damping adjusts to road conditions in real-time.</p>
+      </div>
+
+      <div class="performance-card">
+        <div class="card-icon">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M12 20V10M18 20V4M6 20v-4"/>
+          </svg>
+        </div>
+        <h3 class="card-title">Drive Modes</h3>
+        <p class="card-description">Eco, Normal, Sport, Sport+ and Custom driving modes.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Gallery Section -->
+  <section class="gallery" id="gallery">
+    <div class="section-header">
+      <span class="section-badge">Gallery</span>
+      <h2 class="section-title">Every Angle is <span class="accent">Art</span></h2>
+      <p class="section-subtitle">Explore the stunning design details that make the LC 500 a rolling sculpture.</p>
+    </div>
+
+    <div class="gallery-filters">
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="exterior">Exterior</button>
+      <button class="filter-btn" data-filter="interior">Interior</button>
+      <button class="filter-btn" data-filter="details">Details</button>
+    </div>
+
+    <div class="gallery-grid">
+      <div class="gallery-item large" data-category="exterior">
+        <img src="Img/LC 500 Exterior.png" alt="LC 500 Exterior">
+        <div class="gallery-overlay">
+          <span class="gallery-label">Exterior Design</span>
+        </div>
+      </div>
+      <div class="gallery-item" data-category="interior">
+        <img src="Img/LC 500 Interior.png" alt="LC 500 Interior">
+        <div class="gallery-overlay">
+          <span class="gallery-label">Crafted Interior</span>
+        </div>
+      </div>
+      <div class="gallery-item" data-category="details">
+        <img src="Img/LC 500 Headlight.png" alt="LC 500 Headlight">
+        <div class="gallery-overlay">
+          <span class="gallery-label">LED Headlights</span>
+        </div>
+      </div>
+      <div class="gallery-item" data-category="exterior">
+        <img src="Img/LC 500 Rear.png" alt="LC 500 Rear">
+        <div class="gallery-overlay">
+          <span class="gallery-label">Rear Profile</span>
+        </div>
+      </div>
+      <div class="gallery-item" data-category="interior">
+        <img src="Img/LC 500 Seats.png" alt="LC 500 Seats">
+        <div class="gallery-overlay">
+          <span class="gallery-label">Premium Seating</span>
+        </div>
+      </div>
+      <div class="gallery-item large" data-category="details">
+        <img src="Img/LC 500 Wheels.png" alt="LC 500 Wheels">
+        <div class="gallery-overlay">
+          <span class="gallery-label">21" Forged Wheels</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section class="features" id="features">
+    <div class="section-header">
+      <span class="section-badge">Features</span>
+      <h2 class="section-title">Luxury <span class="accent">Refined</span></h2>
+      <p class="section-subtitle">Every detail has been meticulously crafted to deliver an unparalleled driving experience.</p>
+    </div>
+
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon">
+          <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M9 18V5l12-2v13"/>
+            <circle cx="6" cy="18" r="3"/>
+            <circle cx="18" cy="16" r="3"/>
+          </svg>
+        </div>
+        <h3 class="feature-title">Mark Levinson Audio</h3>
+        <p class="feature-description">13-speaker, 915-watt premium surround sound system delivers concert-quality audio.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">
+          <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <rect x="2" y="3" width="20" height="14" rx="2"/>
+            <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>
+          </svg>
+        </div>
+        <h3 class="feature-title">10.3" Touchscreen</h3>
+        <p class="feature-description">High-resolution multimedia display with navigation and smartphone integration.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">
+          <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+          </svg>
+        </div>
+        <h3 class="feature-title">Lexus Safety System+</h3>
+        <p class="feature-description">Pre-collision system, lane departure alert, and adaptive cruise control.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">
+          <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <circle cx="12" cy="12" r="5"/>
+            <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>
+          </svg>
+        </div>
+        <h3 class="feature-title">Adaptive Headlights</h3>
+        <p class="feature-description">Triple-beam LED headlights with automatic high beam and cornering function.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">
+          <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M20.24 12.24a6 6 0 0 0-8.49-8.49L5 10.5V19h8.5z"/>
+            <path d="M16 8L2 22M17.5 15H9"/>
+          </svg>
+        </div>
+        <h3 class="feature-title">Alcantara & Leather</h3>
+        <p class="feature-description">Hand-stitched Alcantara headliner and semi-aniline leather throughout.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">
+          <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M5 12.55a11 11 0 0 1 14.08 0"/>
+            <path d="M1.42 9a16 16 0 0 1 21.16 0"/>
+            <path d="M8.53 16.11a6 6 0 0 1 6.95 0"/>
+            <circle cx="12" cy="20" r="1"/>
+          </svg>
+        </div>
+        <h3 class="feature-title">Connected Services</h3>
+        <p class="feature-description">Remote start, vehicle finder, and real-time traffic via Lexus Enform.</p>
+      </div>
+    </div>
+
+    <div class="cta-banner">
+      <div class="cta-content">
+        <h3 class="cta-title">Ready to Experience Amazing?</h3>
+        <p class="cta-text">Schedule a test drive and discover the Lexus LC 500 for yourself.</p>
+      </div>
+      <button class="cta-button-large">
+        <span>Schedule Test Drive</span>
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M5 12h14M12 5l7 7-7 7"/>
+        </svg>
+      </button>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-brand">
+        <div class="logo">
+          <span class="logo-text">LEXUS</span>
+          <span class="logo-accent">LC 500</span>
+        </div>
+        <p class="footer-tagline">Experience Amazing</p>
+        <div class="social-links">
+          <a href="#" class="social-link" aria-label="Facebook">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
+            </svg>
+          </a>
+          <a href="#" class="social-link" aria-label="Twitter">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/>
+            </svg>
+          </a>
+          <a href="#" class="social-link" aria-label="Instagram">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="2" y="2" width="20" height="20" rx="5"/>
+              <circle cx="12" cy="12" r="4"/>
+              <circle cx="18" cy="6" r="1"/>
+            </svg>
+          </a>
+          <a href="#" class="social-link" aria-label="YouTube">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"/>
+              <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02" fill="#0a0a0b"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="footer-links">
+        <div class="footer-column">
+          <h4 class="footer-heading">Vehicles</h4>
+          <ul class="footer-nav">
+            <li><a href="#">LC 500</a></li>
+            <li><a href="#">LC 500h</a></li>
+            <li><a href="#">LC Convertible</a></li>
+            <li><a href="#">All Models</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h4 class="footer-heading">Shopping Tools</h4>
+          <ul class="footer-nav">
+            <li><a href="#">Build & Price</a></li>
+            <li><a href="#">Find a Dealer</a></li>
+            <li><a href="#">Request a Quote</a></li>
+            <li><a href="#">Compare Models</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h4 class="footer-heading">Owners</h4>
+          <ul class="footer-nav">
+            <li><a href="#">My Lexus</a></li>
+            <li><a href="#">Service & Maintenance</a></li>
+            <li><a href="#">Warranty</a></li>
+            <li><a href="#">Lexus Enform</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p class="copyright">&copy; 2025 Lexus. All rights reserved.</p>
+      <div class="footer-legal">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Use</a>
+        <a href="#">Accessibility</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+  <script type="module" src="3d.js"></script>
+</body>
+</html>
