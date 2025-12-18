@@ -2532,3 +2532,13 @@ body {
     text-align: left;
   }
 }
+
+.MGraphix_Web{
+  color: var(--accent-red);
+  text-decoration: none;
+}
+
+.MGraphix_Web:hover{
+  color: red;
+  text-decoration: none;
+}
